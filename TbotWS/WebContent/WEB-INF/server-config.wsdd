@@ -3,12 +3,12 @@
   <ns1:parameter name="sendMultiRefs" value="true"/>
   <ns1:parameter name="disablePrettyXML" value="true"/>
   <ns1:parameter name="adminPassword" value="admin"/>
-  <ns1:parameter name="attachments.Directory" value="C:\Users\dfarina\Desktop\wildfly-8.0.0.Final\standalone\deployments\TbotWSEAR.ear\TbotWS.war\WEB-INF\attachments"/>
+  <ns1:parameter name="attachments.Directory" value="/home/daniel/Servers/wildfly/standalone/deployments/TbotWSEAR.ear/TbotWS.war/WEB-INF/attachments"/>
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -23,13 +23,13 @@
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:service name="AccountService" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="initialize" qname="ns1:initialize" returnQName="ns1:initializeReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://services.tbot.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:login" type="xsd:string"/>
-   <ns2:parameter qname="ns1:pass" type="xsd:string"/>
-   <ns2:parameter qname="ns1:Server" type="xsd:string"/>
-  </ns2:operation>
-  <ns1:operation name="obtenerVillas" qname="ns2:obtenerVillas" returnQName="ns2:obtenerVillasReturn" returnType="ns3:Village" soapAction="" xmlns:ns2="http://services.tbot.org" xmlns:ns3="http://dto.system.tbot.org">
-   <ns1:parameter qname="ns2:hashLogin" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns3:operation name="obtenerVillas" qname="ns1:obtenerVillas" returnQName="ns1:obtenerVillasReturn" returnType="ns2:Village" soapAction="" xmlns:ns1="http://services.tbot.org" xmlns:ns2="http://dto.system.tbot.org" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:hashLogin" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns3:operation>
+  <ns1:operation name="initialize" qname="ns3:initialize" returnQName="ns3:initializeReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://services.tbot.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:login" type="xsd:string"/>
+   <ns1:parameter qname="ns3:pass" type="xsd:string"/>
+   <ns1:parameter qname="ns3:Server" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="obtenerVillas initialize"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>

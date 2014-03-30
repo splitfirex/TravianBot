@@ -5,6 +5,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://services.tbot.org" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://dto.system.tbot.org"/>
+   <element name="obtenerVillas">
+    <complexType>
+     <sequence>
+      <element name="hashLogin" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenerVillasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="obtenerVillasReturn" type="tns1:Village"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="initialize">
     <complexType>
      <sequence>
@@ -18,20 +32,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="initializeReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="obtenerVillas">
-    <complexType>
-     <sequence>
-      <element name="hashLogin" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="obtenerVillasResponse">
-    <complexType>
-     <sequence>
-      <element maxOccurs="unbounded" name="obtenerVillasReturn" type="tns1:Village"/>
      </sequence>
     </complexType>
    </element>
@@ -73,17 +73,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="obtenerVillasResponse">
+   <wsdl:message name="initializeRequest">
 
-      <wsdl:part element="impl:obtenerVillasResponse" name="parameters">
+      <wsdl:part element="impl:initialize" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="initializeRequest">
+   <wsdl:message name="obtenerVillasResponse">
 
-      <wsdl:part element="impl:initialize" name="parameters">
+      <wsdl:part element="impl:obtenerVillasResponse" name="parameters">
 
       </wsdl:part>
 
@@ -99,18 +99,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="AccountService">
 
-      <wsdl:operation name="initialize">
-
-         <wsdl:input message="impl:initializeRequest" name="initializeRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:initializeResponse" name="initializeResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="obtenerVillas">
 
          <wsdl:input message="impl:obtenerVillasRequest" name="obtenerVillasRequest">
@@ -123,29 +111,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="initialize">
+
+         <wsdl:input message="impl:initializeRequest" name="initializeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:initializeResponse" name="initializeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="AccountServiceSoapBinding" type="impl:AccountService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="initialize">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="initializeRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="initializeResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
 
       <wsdl:operation name="obtenerVillas">
 
@@ -158,6 +140,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="obtenerVillasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="initialize">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="initializeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="initializeResponse">
 
             <wsdlsoap:body use="literal"/>
 

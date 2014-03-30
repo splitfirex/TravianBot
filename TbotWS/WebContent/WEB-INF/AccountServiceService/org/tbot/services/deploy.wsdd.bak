@@ -20,13 +20,13 @@
       <parameter name="className" value="org.tbot.services.AccountServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="AccountService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="obtenerVillas" qname="operNS:obtenerVillas" xmlns:operNS="http://services.tbot.org" returnQName="retNS:obtenerVillasReturn" xmlns:retNS="http://services.tbot.org" returnType="rtns:Village" xmlns:rtns="http://dto.system.tbot.org" soapAction="" >
+        <parameter qname="pns:hashLogin" xmlns:pns="http://services.tbot.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="initialize" qname="operNS:initialize" xmlns:operNS="http://services.tbot.org" returnQName="retNS:initializeReturn" xmlns:retNS="http://services.tbot.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:login" xmlns:pns="http://services.tbot.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:pass" xmlns:pns="http://services.tbot.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Server" xmlns:pns="http://services.tbot.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="obtenerVillas" qname="operNS:obtenerVillas" xmlns:operNS="http://services.tbot.org" returnQName="retNS:obtenerVillasReturn" xmlns:retNS="http://services.tbot.org" returnType="rtns:Village" xmlns:rtns="http://dto.system.tbot.org" soapAction="" >
-        <parameter qname="pns:hashLogin" xmlns:pns="http://services.tbot.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="obtenerVillas initialize"/>
 
