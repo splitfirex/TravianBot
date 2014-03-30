@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AccountServiceService WSDL service -->
+
+  <service name="AccountService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://services.tbot.org"/>
+      <parameter name="wsdlServiceElement" value="AccountServiceService"/>
+      <parameter name="schemaQualified" value="http://dto.system.tbot.org,http://services.tbot.org"/>
+      <parameter name="wsdlServicePort" value="AccountService"/>
+      <parameter name="className" value="org.tbot.services.AccountService"/>
+      <parameter name="wsdlPortType" value="AccountService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="initialize" qname="operNS:initialize" returnQName="retNS:initializeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:login" type="tns:string"/>
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pass" type="tns:string"/>
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Server" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.system.tbot.org" name="obtenerVillas" qname="operNS:obtenerVillas" returnQName="retNS:obtenerVillasReturn" returnType="rtns:Village" soapAction="">
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hashLogin" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="obtenerVillas initialize"/>
+
+      <typeMapping xmlns:ns="http://dto.system.tbot.org" qname="ns:Resources" type="java:org.tbot.system.dto.Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dto.system.tbot.org" qname="ns:Village" type="java:org.tbot.system.dto.Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
