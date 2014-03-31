@@ -8,6 +8,7 @@
 package org.tbot.services;
 
 public interface AccountService extends java.rmi.Remote {
-    public org.tbot.dto.Village[] obtenerVillas(java.lang.String hashLogin) throws java.rmi.RemoteException;
     public java.lang.String initialize(java.lang.String login, java.lang.String pass, java.lang.String server) throws java.rmi.RemoteException;
+    public org.tbot.dto.Village[] obtenerVillas(java.lang.String hashLogin) throws java.rmi.RemoteException;
+    public org.tbot.dto.Account obtenerCuenta(java.lang.String hashLogin) throws java.rmi.RemoteException;
 }

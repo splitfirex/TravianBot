@@ -5,7 +5,10 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="TravianGUI.war" deploy-path="/" handle="module:/resource/TravianGUI/TravianGUI">
+        <dependent-module archiveName="TbotClient.jar" deploy-path="/lib" handle="module:/resource/TbotClient/TbotClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TbotGUI.war" deploy-path="/" handle="module:/resource/TbotGUI/TbotGUI">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>

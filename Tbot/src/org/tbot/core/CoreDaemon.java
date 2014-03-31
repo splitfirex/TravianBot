@@ -3,11 +3,13 @@ package org.tbot.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.tbot.dto.Account;
 import org.tbot.utils.StringMD;
 
 public class CoreDaemon {
 
 	private static Map<String, CoreConnection> connections = new HashMap<String, CoreConnection>();
+	private static Map<String, Account> Accounts = new HashMap<String, Account>();
 
 	public static String generateConnection(String server, String login,
 			String pass) {
@@ -22,6 +24,8 @@ public class CoreDaemon {
 		if (connections.containsKey(encryptedString)) {
 			return encryptedString;
 		} else {
+			Account acc = new Account(encryptedString);
+			Accounts.put(encryptedString, acc);
 			connections.put(encryptedString, new CoreConnection(server, login,
 					pass));
 			return encryptedString;
@@ -39,6 +43,10 @@ public class CoreDaemon {
 
 	public static void killCoonection(String login) {
 		connections.remove(login);
+		Accounts.remove(login);
 	}
 
+	public static Account getAccount(String login) {
+		return Accounts.get(login);
+	}
 }

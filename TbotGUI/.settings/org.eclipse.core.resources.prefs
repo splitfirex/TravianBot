@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/org/tbot/dto/Account.java=UTF-8
 encoding//src/org/tbot/dto/Resources.java=UTF-8
 encoding//src/org/tbot/dto/Village.java=UTF-8
 encoding//src/org/tbot/services/AccountService.java=UTF-8

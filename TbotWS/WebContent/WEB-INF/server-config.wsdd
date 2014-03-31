@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -23,15 +23,18 @@
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:service name="AccountService" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="obtenerVillas" qname="ns1:obtenerVillas" returnQName="ns1:obtenerVillasReturn" returnType="ns2:Village" soapAction="" xmlns:ns1="http://services.tbot.org" xmlns:ns2="http://dto.tbot.org" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
-   <ns3:parameter qname="ns1:hashLogin" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns3:operation>
-  <ns1:operation name="initialize" qname="ns3:initialize" returnQName="ns3:initializeReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://services.tbot.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:login" type="xsd:string"/>
-   <ns1:parameter qname="ns3:pass" type="xsd:string"/>
-   <ns1:parameter qname="ns3:Server" type="xsd:string"/>
+  <ns2:operation name="initialize" qname="ns1:initialize" returnQName="ns1:initializeReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://services.tbot.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:login" type="xsd:string"/>
+   <ns2:parameter qname="ns1:pass" type="xsd:string"/>
+   <ns2:parameter qname="ns1:Server" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:operation name="obtenerVillas" qname="ns2:obtenerVillas" returnQName="ns2:obtenerVillasReturn" returnType="ns3:Village" soapAction="" xmlns:ns2="http://services.tbot.org" xmlns:ns3="http://dto.tbot.org">
+   <ns1:parameter qname="ns2:hashLogin" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="obtenerVillas initialize"/>
+  <ns1:operation name="obtenerCuenta" qname="ns4:obtenerCuenta" returnQName="ns4:obtenerCuentaReturn" returnType="ns5:Account" soapAction="" xmlns:ns4="http://services.tbot.org" xmlns:ns5="http://dto.tbot.org">
+   <ns1:parameter qname="ns4:hashLogin" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="obtenerCuenta obtenerVillas initialize"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="AccountService"/>
   <ns1:parameter name="className" value="org.tbot.services.AccountService"/>
@@ -39,8 +42,10 @@
   <ns1:parameter name="schemaQualified" value="http://dto.tbot.org,http://services.tbot.org"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://services.tbot.org"/>
   <ns1:parameter name="wsdlServiceElement" value="AccountServiceService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.tbot.dto.Resources" xmlns:ns4="http://dto.tbot.org"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.tbot.dto.Village" xmlns:ns5="http://dto.tbot.org"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.tbot.dto.Resources" xmlns:ns6="http://dto.tbot.org"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:Account" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.tbot.dto.Account" xmlns:ns7="http://dto.tbot.org"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.tbot.dto.Village" xmlns:ns8="http://dto.tbot.org"/>
+  <ns1:arrayMapping innerType="ns10:Village" languageSpecificType="java:org.tbot.dto.Village[]" qname="ns9:ArrayOf_tns1_Village" xmlns:ns10="http://dto.tbot.org" xmlns:ns9="http://services.tbot.org"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>

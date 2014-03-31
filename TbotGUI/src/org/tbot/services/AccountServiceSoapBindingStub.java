@@ -16,24 +16,13 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[2];
+        _operations = new org.apache.axis.description.OperationDesc[3];
         _initOperationDesc1();
     }
 
     private static void _initOperationDesc1(){
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("obtenerVillas");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.tbot.org", "hashLogin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://dto.tbot.org", "Village"));
-        oper.setReturnClass(org.tbot.dto.Village[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://services.tbot.org", "obtenerVillasReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[0] = oper;
-
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("initialize");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.tbot.org", "login"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -47,7 +36,29 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
         oper.setReturnQName(new javax.xml.namespace.QName("http://services.tbot.org", "initializeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[0] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("obtenerVillas");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.tbot.org", "hashLogin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://dto.tbot.org", "Village"));
+        oper.setReturnClass(org.tbot.dto.Village[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://services.tbot.org", "obtenerVillasReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[1] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("obtenerCuenta");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.tbot.org", "hashLogin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://dto.tbot.org", "Account"));
+        oper.setReturnClass(org.tbot.dto.Account.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://services.tbot.org", "obtenerCuentaReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[2] = oper;
 
     }
 
@@ -80,6 +91,13 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            qName = new javax.xml.namespace.QName("http://dto.tbot.org", "Account");
+            cachedSerQNames.add(qName);
+            cls = org.tbot.dto.Account.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://dto.tbot.org", "Resources");
             cachedSerQNames.add(qName);
             cls = org.tbot.dto.Resources.class;
@@ -93,6 +111,15 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://services.tbot.org", "ArrayOf_tns1_Village");
+            cachedSerQNames.add(qName);
+            cls = org.tbot.dto.Village[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://dto.tbot.org", "Village");
+            qName2 = new javax.xml.namespace.QName("http://services.tbot.org", "item");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
     }
 
@@ -160,12 +187,46 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
         }
     }
 
-    public org.tbot.dto.Village[] obtenerVillas(java.lang.String hashLogin) throws java.rmi.RemoteException {
+    public java.lang.String initialize(java.lang.String login, java.lang.String pass, java.lang.String server) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[0]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://services.tbot.org", "initialize"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {login, pass, server});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public org.tbot.dto.Village[] obtenerVillas(java.lang.String hashLogin) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[1]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -194,23 +255,23 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
 }
     }
 
-    public java.lang.String initialize(java.lang.String login, java.lang.String pass, java.lang.String server) throws java.rmi.RemoteException {
+    public org.tbot.dto.Account obtenerCuenta(java.lang.String hashLogin) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
+        _call.setOperation(_operations[2]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://services.tbot.org", "initialize"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://services.tbot.org", "obtenerCuenta"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {login, pass, server});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {hashLogin});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -218,9 +279,9 @@ public class AccountServiceSoapBindingStub extends org.apache.axis.client.Stub i
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String) _resp;
+                return (org.tbot.dto.Account) _resp;
             } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+                return (org.tbot.dto.Account) org.apache.axis.utils.JavaUtils.convert(_resp, org.tbot.dto.Account.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

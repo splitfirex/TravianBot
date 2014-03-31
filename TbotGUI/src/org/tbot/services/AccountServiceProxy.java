@@ -44,16 +44,22 @@ public class AccountServiceProxy implements org.tbot.services.AccountService {
     return accountService;
   }
   
+  public java.lang.String initialize(java.lang.String login, java.lang.String pass, java.lang.String server) throws java.rmi.RemoteException{
+    if (accountService == null)
+      _initAccountServiceProxy();
+    return accountService.initialize(login, pass, server);
+  }
+  
   public org.tbot.dto.Village[] obtenerVillas(java.lang.String hashLogin) throws java.rmi.RemoteException{
     if (accountService == null)
       _initAccountServiceProxy();
     return accountService.obtenerVillas(hashLogin);
   }
   
-  public java.lang.String initialize(java.lang.String login, java.lang.String pass, java.lang.String server) throws java.rmi.RemoteException{
+  public org.tbot.dto.Account obtenerCuenta(java.lang.String hashLogin) throws java.rmi.RemoteException{
     if (accountService == null)
       _initAccountServiceProxy();
-    return accountService.initialize(login, pass, server);
+    return accountService.obtenerCuenta(hashLogin);
   }
   
   

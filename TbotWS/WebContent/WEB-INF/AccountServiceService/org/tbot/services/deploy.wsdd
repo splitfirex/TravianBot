@@ -10,17 +10,22 @@
       <parameter name="className" value="org.tbot.services.AccountService"/>
       <parameter name="wsdlPortType" value="AccountService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.tbot.org" name="obtenerVillas" qname="operNS:obtenerVillas" returnQName="retNS:obtenerVillasReturn" returnType="rtns:Village" soapAction="">
-        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hashLogin" type="tns:string"/>
-      </operation>
       <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="initialize" qname="operNS:initialize" returnQName="retNS:initializeReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:login" type="tns:string"/>
         <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pass" type="tns:string"/>
         <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Server" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="obtenerVillas initialize"/>
+      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.tbot.org" name="obtenerVillas" qname="operNS:obtenerVillas" returnQName="retNS:obtenerVillasReturn" returnType="rtns:Village" soapAction="">
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hashLogin" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.tbot.org" name="obtenerCuenta" qname="operNS:obtenerCuenta" returnQName="retNS:obtenerCuentaReturn" returnType="rtns:Account" soapAction="">
+        <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hashLogin" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="obtenerCuenta obtenerVillas initialize"/>
 
       <typeMapping xmlns:ns="http://dto.tbot.org" qname="ns:Resources" type="java:org.tbot.dto.Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://services.tbot.org" xmlns:cmp-ns="http://dto.tbot.org" qname="ns:ArrayOf_tns1_Village" type="java:org.tbot.dto.Village[]" innerType="cmp-ns:Village" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dto.tbot.org" qname="ns:Account" type="java:org.tbot.dto.Account" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
       <typeMapping xmlns:ns="http://dto.tbot.org" qname="ns:Village" type="java:org.tbot.dto.Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>
