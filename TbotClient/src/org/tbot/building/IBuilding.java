@@ -2,9 +2,9 @@ package org.tbot.building;
 
 import java.io.IOException;
 
-import org.tbot.system.dto.Account;
-import org.tbot.system.dto.Building;
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Account;
+import org.tbot.dto.Building;
+import org.tbot.dto.Village;
 
 public interface IBuilding {
 	public void inicializarEdificios(String login, int id,int villageID, Building bui);

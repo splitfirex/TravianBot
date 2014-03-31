@@ -5,7 +5,6 @@
 	<projects>
 		<project>TbotWS</project>
 		<project>TravianGUI</project>
-		<project>TravianGWT</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

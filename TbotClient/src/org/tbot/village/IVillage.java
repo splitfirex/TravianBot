@@ -3,9 +3,9 @@ package org.tbot.village;
 import java.io.IOException;
 import java.util.Map;
 
-import org.tbot.system.dto.Building;
-import org.tbot.system.dto.Troops;
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Building;
+import org.tbot.dto.Troops;
+import org.tbot.dto.Village;
 
 public interface IVillage {
 		

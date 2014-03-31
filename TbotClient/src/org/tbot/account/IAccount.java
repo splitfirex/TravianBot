@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.ejb.Remote;
 
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Village;
 
 @Remote
 public interface IAccount {

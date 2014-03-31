@@ -5,12 +5,12 @@
   <service name="AccountService" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://services.tbot.org"/>
       <parameter name="wsdlServiceElement" value="AccountServiceService"/>
-      <parameter name="schemaQualified" value="http://dto.system.tbot.org,http://services.tbot.org"/>
+      <parameter name="schemaQualified" value="http://dto.tbot.org,http://services.tbot.org"/>
       <parameter name="wsdlServicePort" value="AccountService"/>
       <parameter name="className" value="org.tbot.services.AccountService"/>
       <parameter name="wsdlPortType" value="AccountService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.system.tbot.org" name="obtenerVillas" qname="operNS:obtenerVillas" returnQName="retNS:obtenerVillasReturn" returnType="rtns:Village" soapAction="">
+      <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://dto.tbot.org" name="obtenerVillas" qname="operNS:obtenerVillas" returnQName="retNS:obtenerVillasReturn" returnType="rtns:Village" soapAction="">
         <parameter xmlns:pns="http://services.tbot.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hashLogin" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://services.tbot.org" xmlns:retNS="http://services.tbot.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="initialize" qname="operNS:initialize" returnQName="retNS:initializeReturn" returnType="rtns:string" soapAction="">
@@ -20,7 +20,7 @@
       </operation>
       <parameter name="allowedMethods" value="obtenerVillas initialize"/>
 
-      <typeMapping xmlns:ns="http://dto.system.tbot.org" qname="ns:Resources" type="java:org.tbot.system.dto.Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://dto.system.tbot.org" qname="ns:Village" type="java:org.tbot.system.dto.Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dto.tbot.org" qname="ns:Resources" type="java:org.tbot.dto.Resources" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dto.tbot.org" qname="ns:Village" type="java:org.tbot.dto.Village" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

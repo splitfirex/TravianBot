@@ -8,8 +8,8 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.tbot.building.IBuilding;
-import org.tbot.system.dto.Building;
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Building;
+import org.tbot.dto.Village;
 
 @WebService
 public class BuildingService {

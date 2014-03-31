@@ -1,0 +1,2 @@
+serviceClass: org.tbot.client.AccountServiceGWT
+path: 0E2066D59AFF8FCF6147198E81C0B366.gwt.rpc

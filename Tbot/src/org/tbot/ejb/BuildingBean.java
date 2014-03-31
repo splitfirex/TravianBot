@@ -22,8 +22,8 @@ import org.tbot.building.IBuilding;
 import org.tbot.core.CoreActions;
 import org.tbot.core.CoreConnection;
 import org.tbot.core.CoreDaemon;
-import org.tbot.system.dto.Building;
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Building;
+import org.tbot.dto.Village;
 
 @Local
 @Stateless

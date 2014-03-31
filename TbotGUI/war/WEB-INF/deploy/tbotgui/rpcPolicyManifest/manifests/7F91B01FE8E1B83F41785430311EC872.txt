@@ -1,0 +1,2 @@
+serviceClass: org.tbot.client.GreetingService
+path: 62C77262DF31F013B780419ED34DBD55.gwt.rpc

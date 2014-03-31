@@ -9,7 +9,7 @@ import javax.naming.NamingException;
 
 import org.tbot.account.IAccount;
 import org.tbot.account.impl.AccountRemoteLocal;
-import org.tbot.system.dto.Village;
+import org.tbot.dto.Village;
 import org.tbot.util.ServiceLocator;
 
 @WebService(name = "AccountService")

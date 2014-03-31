@@ -16,8 +16,8 @@ import org.tbot.core.CoreBuildings;
 import org.tbot.core.CoreDaemon;
 import org.tbot.core.CoreActions;
 import org.tbot.core.CoreConnection;
-import org.tbot.system.dto.Building;
-import org.tbot.system.dto.Resources;
+import org.tbot.dto.Building;
+import org.tbot.dto.Resources;
 
 public class EventGetBuilding implements Runnable {
 	
